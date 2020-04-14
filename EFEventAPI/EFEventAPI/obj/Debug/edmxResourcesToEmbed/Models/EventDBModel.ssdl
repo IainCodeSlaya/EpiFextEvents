@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EpiFexEventModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DietaryRequirement">
+    <Key>
+      <PropertyRef Name="DietaryRequirementID" />
+    </Key>
+    <Property Name="DietaryRequirementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DietaryRequirementDesc" Type="varchar" MaxLength="200" />
+    <Property Name="DietaryRequirementName" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmployeeSurname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="EmployeeEmail" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="EmployeeContact" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="EmployeeNumber" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventDate" Type="date" />
+    <Property Name="EventStartTime" Type="time" Precision="7" />
+    <Property Name="EventEndTime" Type="time" Precision="7" />
+    <Property Name="EventTitle" Type="varchar" MaxLength="40" />
+    <Property Name="GuestCount" Type="int" />
+    <Property Name="EventLocation" Type="varchar" MaxLength="140" />
+    <Property Name="IsCaterer" Type="bit" />
+    <Property Name="EventTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="EventActivity">
+    <Key>
+      <PropertyRef Name="EventActivityID" />
+    </Key>
+    <Property Name="EventActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivityStartTime" Type="time" Precision="7" />
+    <Property Name="ActivityEndTime" Type="time" Precision="7" />
+    <Property Name="ActivityTitle" Type="varchar" MaxLength="30" />
+    <Property Name="ActivityLocation" Type="varchar" MaxLength="50" />
+    <Property Name="ActivityDesc" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EventActivitySpeaker">
+    <Key>
+      <PropertyRef Name="SpeakerID" />
+    </Key>
+    <Property Name="SpeakerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventEmployeeID" Type="int" />
+    <Property Name="EventActivityID" Type="int" />
+  </EntityType>
+  <EntityType Name="EventEmployee">
+    <Key>
+      <PropertyRef Name="EventEmployeeID" />
+    </Key>
+    <Property Name="EventEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventID" Type="int" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="GuestStatusID" Type="int" />
+    <Property Name="DietaryRequirementID" Type="int" />
+    <Property Name="GuestQRCode" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="EventGuest">
+    <Key>
+      <PropertyRef Name="EventGuestID" />
+    </Key>
+    <Property Name="EventGuestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventID" Type="int" />
+    <Property Name="GuestID" Type="int" />
+    <Property Name="GuestStatusID" Type="int" />
+    <Property Name="DietaryRequirementID" Type="int" />
+    <Property Name="GuestQRCode" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="EventType">
+    <Key>
+      <PropertyRef Name="EventTypeID" />
+    </Key>
+    <Property Name="EventTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventTypeDesc" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Guest">
+    <Key>
+      <PropertyRef Name="GuestID" />
+    </Key>
+    <Property Name="GuestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuestName" Type="varchar" MaxLength="20" />
+    <Property Name="GuestSurname" Type="varchar" MaxLength="30" />
+    <Property Name="GuestEmail" Type="varchar" MaxLength="30" />
+    <Property Name="GuestContact" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="GuestStatus">
+    <Key>
+      <PropertyRef Name="GuestStatusID" />
+    </Key>
+    <Property Name="GuestStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuestStatusDesc" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <Association Name="FK__Event__EventType__3D5E1FD2">
+    <End Role="EventType" Type="Self.EventType" Multiplicity="0..1" />
+    <End Role="Event" Type="Self.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="EventTypeID" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="EventTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventActi__Event__5165187F">
+    <End Role="EventEmployee" Type="Self.EventEmployee" Multiplicity="0..1" />
+    <End Role="EventActivitySpeaker" Type="Self.EventActivitySpeaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventEmployee">
+        <PropertyRef Name="EventEmployeeID" />
+      </Principal>
+      <Dependent Role="EventActivitySpeaker">
+        <PropertyRef Name="EventEmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventActi__Event__52593CB8">
+    <End Role="EventActivity" Type="Self.EventActivity" Multiplicity="0..1" />
+    <End Role="EventActivitySpeaker" Type="Self.EventActivitySpeaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventActivity">
+        <PropertyRef Name="EventActivityID" />
+      </Principal>
+      <Dependent Role="EventActivitySpeaker">
+        <PropertyRef Name="EventActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventEmpl__Dieta__4E88ABD4">
+    <End Role="DietaryRequirement" Type="Self.DietaryRequirement" Multiplicity="0..1" />
+    <End Role="EventEmployee" Type="Self.EventEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DietaryRequirement">
+        <PropertyRef Name="DietaryRequirementID" />
+      </Principal>
+      <Dependent Role="EventEmployee">
+        <PropertyRef Name="DietaryRequirementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventEmpl__Emplo__4CA06362">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EventEmployee" Type="Self.EventEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EventEmployee">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventEmpl__Event__4BAC3F29">
+    <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+    <End Role="EventEmployee" Type="Self.EventEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="EventID" />
+      </Principal>
+      <Dependent Role="EventEmployee">
+        <PropertyRef Name="EventID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventEmpl__Guest__4D94879B">
+    <End Role="GuestStatus" Type="Self.GuestStatus" Multiplicity="0..1" />
+    <End Role="EventEmployee" Type="Self.EventEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GuestStatus">
+        <PropertyRef Name="GuestStatusID" />
+      </Principal>
+      <Dependent Role="EventEmployee">
+        <PropertyRef Name="GuestStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventGues__Dieta__48CFD27E">
+    <End Role="DietaryRequirement" Type="Self.DietaryRequirement" Multiplicity="0..1" />
+    <End Role="EventGuest" Type="Self.EventGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DietaryRequirement">
+        <PropertyRef Name="DietaryRequirementID" />
+      </Principal>
+      <Dependent Role="EventGuest">
+        <PropertyRef Name="DietaryRequirementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventGues__Event__45F365D3">
+    <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+    <End Role="EventGuest" Type="Self.EventGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="EventID" />
+      </Principal>
+      <Dependent Role="EventGuest">
+        <PropertyRef Name="EventID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventGues__Guest__46E78A0C">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="0..1" />
+    <End Role="EventGuest" Type="Self.EventGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="GuestID" />
+      </Principal>
+      <Dependent Role="EventGuest">
+        <PropertyRef Name="GuestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventGues__Guest__47DBAE45">
+    <End Role="GuestStatus" Type="Self.GuestStatus" Multiplicity="0..1" />
+    <End Role="EventGuest" Type="Self.EventGuest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GuestStatus">
+        <PropertyRef Name="GuestStatusID" />
+      </Principal>
+      <Dependent Role="EventGuest">
+        <PropertyRef Name="GuestStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EpiFexEventModelStoreContainer">
+    <EntitySet Name="DietaryRequirement" EntityType="Self.DietaryRequirement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventActivity" EntityType="Self.EventActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventActivitySpeaker" EntityType="Self.EventActivitySpeaker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventEmployee" EntityType="Self.EventEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventGuest" EntityType="Self.EventGuest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guest" EntityType="Self.Guest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GuestStatus" EntityType="Self.GuestStatus" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Event__EventType__3D5E1FD2" Association="Self.FK__Event__EventType__3D5E1FD2">
+      <End Role="EventType" EntitySet="EventType" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventActi__Event__5165187F" Association="Self.FK__EventActi__Event__5165187F">
+      <End Role="EventEmployee" EntitySet="EventEmployee" />
+      <End Role="EventActivitySpeaker" EntitySet="EventActivitySpeaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventActi__Event__52593CB8" Association="Self.FK__EventActi__Event__52593CB8">
+      <End Role="EventActivity" EntitySet="EventActivity" />
+      <End Role="EventActivitySpeaker" EntitySet="EventActivitySpeaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventEmpl__Dieta__4E88ABD4" Association="Self.FK__EventEmpl__Dieta__4E88ABD4">
+      <End Role="DietaryRequirement" EntitySet="DietaryRequirement" />
+      <End Role="EventEmployee" EntitySet="EventEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventEmpl__Emplo__4CA06362" Association="Self.FK__EventEmpl__Emplo__4CA06362">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EventEmployee" EntitySet="EventEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventEmpl__Event__4BAC3F29" Association="Self.FK__EventEmpl__Event__4BAC3F29">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventEmployee" EntitySet="EventEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventEmpl__Guest__4D94879B" Association="Self.FK__EventEmpl__Guest__4D94879B">
+      <End Role="GuestStatus" EntitySet="GuestStatus" />
+      <End Role="EventEmployee" EntitySet="EventEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventGues__Dieta__48CFD27E" Association="Self.FK__EventGues__Dieta__48CFD27E">
+      <End Role="DietaryRequirement" EntitySet="DietaryRequirement" />
+      <End Role="EventGuest" EntitySet="EventGuest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventGues__Event__45F365D3" Association="Self.FK__EventGues__Event__45F365D3">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventGuest" EntitySet="EventGuest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventGues__Guest__46E78A0C" Association="Self.FK__EventGues__Guest__46E78A0C">
+      <End Role="Guest" EntitySet="Guest" />
+      <End Role="EventGuest" EntitySet="EventGuest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventGues__Guest__47DBAE45" Association="Self.FK__EventGues__Guest__47DBAE45">
+      <End Role="GuestStatus" EntitySet="GuestStatus" />
+      <End Role="EventGuest" EntitySet="EventGuest" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

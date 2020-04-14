@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EpiFexEventModelStoreContainer" CdmEntityContainer="EpiFexEventEntities">
+    <EntitySetMapping Name="DietaryRequirements">
+      <EntityTypeMapping TypeName="EpiFexEventModel.DietaryRequirement">
+        <MappingFragment StoreEntitySet="DietaryRequirement">
+          <ScalarProperty Name="DietaryRequirementID" ColumnName="DietaryRequirementID" />
+          <ScalarProperty Name="DietaryRequirementDesc" ColumnName="DietaryRequirementDesc" />
+          <ScalarProperty Name="DietaryRequirementName" ColumnName="DietaryRequirementName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="EpiFexEventModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
+          <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+          <ScalarProperty Name="EmployeeContact" ColumnName="EmployeeContact" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="EpiFexEventModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventStartTime" ColumnName="EventStartTime" />
+          <ScalarProperty Name="EventEndTime" ColumnName="EventEndTime" />
+          <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+          <ScalarProperty Name="GuestCount" ColumnName="GuestCount" />
+          <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+          <ScalarProperty Name="IsCaterer" ColumnName="IsCaterer" />
+          <ScalarProperty Name="EventTypeID" ColumnName="EventTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventActivities">
+      <EntityTypeMapping TypeName="EpiFexEventModel.EventActivity">
+        <MappingFragment StoreEntitySet="EventActivity">
+          <ScalarProperty Name="EventActivityID" ColumnName="EventActivityID" />
+          <ScalarProperty Name="ActivityStartTime" ColumnName="ActivityStartTime" />
+          <ScalarProperty Name="ActivityEndTime" ColumnName="ActivityEndTime" />
+          <ScalarProperty Name="ActivityTitle" ColumnName="ActivityTitle" />
+          <ScalarProperty Name="ActivityLocation" ColumnName="ActivityLocation" />
+          <ScalarProperty Name="ActivityDesc" ColumnName="ActivityDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventActivitySpeakers">
+      <EntityTypeMapping TypeName="EpiFexEventModel.EventActivitySpeaker">
+        <MappingFragment StoreEntitySet="EventActivitySpeaker">
+          <ScalarProperty Name="SpeakerID" ColumnName="SpeakerID" />
+          <ScalarProperty Name="EventEmployeeID" ColumnName="EventEmployeeID" />
+          <ScalarProperty Name="EventActivityID" ColumnName="EventActivityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventEmployees">
+      <EntityTypeMapping TypeName="EpiFexEventModel.EventEmployee">
+        <MappingFragment StoreEntitySet="EventEmployee">
+          <ScalarProperty Name="EventEmployeeID" ColumnName="EventEmployeeID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="GuestStatusID" ColumnName="GuestStatusID" />
+          <ScalarProperty Name="DietaryRequirementID" ColumnName="DietaryRequirementID" />
+          <ScalarProperty Name="GuestQRCode" ColumnName="GuestQRCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventGuests">
+      <EntityTypeMapping TypeName="EpiFexEventModel.EventGuest">
+        <MappingFragment StoreEntitySet="EventGuest">
+          <ScalarProperty Name="EventGuestID" ColumnName="EventGuestID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="GuestID" ColumnName="GuestID" />
+          <ScalarProperty Name="GuestStatusID" ColumnName="GuestStatusID" />
+          <ScalarProperty Name="DietaryRequirementID" ColumnName="DietaryRequirementID" />
+          <ScalarProperty Name="GuestQRCode" ColumnName="GuestQRCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventTypes">
+      <EntityTypeMapping TypeName="EpiFexEventModel.EventType">
+        <MappingFragment StoreEntitySet="EventType">
+          <ScalarProperty Name="EventTypeID" ColumnName="EventTypeID" />
+          <ScalarProperty Name="EventTypeDesc" ColumnName="EventTypeDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guests">
+      <EntityTypeMapping TypeName="EpiFexEventModel.Guest">
+        <MappingFragment StoreEntitySet="Guest">
+          <ScalarProperty Name="GuestID" ColumnName="GuestID" />
+          <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+          <ScalarProperty Name="GuestSurname" ColumnName="GuestSurname" />
+          <ScalarProperty Name="GuestEmail" ColumnName="GuestEmail" />
+          <ScalarProperty Name="GuestContact" ColumnName="GuestContact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuestStatus">
+      <EntityTypeMapping TypeName="EpiFexEventModel.GuestStatu">
+        <MappingFragment StoreEntitySet="GuestStatus">
+          <ScalarProperty Name="GuestStatusID" ColumnName="GuestStatusID" />
+          <ScalarProperty Name="GuestStatusDesc" ColumnName="GuestStatusDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
