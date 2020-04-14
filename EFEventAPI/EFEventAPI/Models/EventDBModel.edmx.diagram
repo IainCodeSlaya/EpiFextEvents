@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="EpiFexEventModel.EventGuest" Width="1.5" PointX="2.375" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EpiFexEventModel.EventType" Width="1.5" PointX="3.375" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EpiFexEventModel.Guest" Width="1.5" PointX="0.5" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EpiFexEventModel.GuestStatu" Width="1.5" PointX="5.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpiFexEventModel.GuestStatu" Width="1.5" PointX="5.875" PointY="2.75" IsExpanded="true" />
         <AssociationConnector Association="EpiFexEventModel.FK__EventEmpl__Dieta__4E88ABD4" ManuallyRouted="false" />
         <AssociationConnector Association="EpiFexEventModel.FK__EventGues__Dieta__48CFD27E" ManuallyRouted="false" />
         <AssociationConnector Association="EpiFexEventModel.FK__EventEmpl__Emplo__4CA06362" ManuallyRouted="false" />

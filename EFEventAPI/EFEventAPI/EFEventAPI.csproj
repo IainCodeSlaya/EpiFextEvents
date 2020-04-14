@@ -168,6 +168,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DietaryRequirementsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\EventActivitiesController.cs" />
+    <Compile Include="Controllers\EventActivitySpeakersController.cs" />
+    <Compile Include="Controllers\EventEmployeesController.cs" />
+    <Compile Include="Controllers\EventGuestsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\EventTypesController.cs" />
+    <Compile Include="Controllers\GuestsController.cs" />
+    <Compile Include="Controllers\GuestStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
