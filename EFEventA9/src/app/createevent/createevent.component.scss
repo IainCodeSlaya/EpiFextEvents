@@ -1,0 +1,45 @@
+.filler {
+  flex: 1 1 auto;
+}
+.gap {
+  margin-right: 10px;
+}
+
+.toolbar {
+  padding-bottom: 10px;
+}
+
+.leftlabels {
+  text-align: end;
+  // padding-left: 4em;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.test {
+  background: #21699d;
+  color: #fff;
+}
+
+.col2 {
+  background: #62ccca;
+  color: #fff;
+}
+
+.col3 {
+  background: #6263cc;
+  color: #fff;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #21699d !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #21699d;
+}
+
+.all {
+  font-family: Arial, Helvetica, sans-serif;
+}

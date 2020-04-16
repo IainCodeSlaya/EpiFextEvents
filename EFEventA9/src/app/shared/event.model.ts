@@ -1,6 +1,6 @@
 export class Event {
   EventID: number;
-  EventDate: string;
+  EventDate: Date;
   EventStartTime: string;
   EventEndTime: string;
   EventTitle: string;
