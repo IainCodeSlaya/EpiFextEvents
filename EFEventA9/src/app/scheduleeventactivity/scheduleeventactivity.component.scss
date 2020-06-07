@@ -1,6 +1,10 @@
 .filler {
   flex: 1 1 auto;
 }
+
+#id {
+
+}
 .gap {
   margin-right: 10px;
 }
@@ -11,23 +15,19 @@
 
 .leftlabels {
   text-align: start;
+  // padding-left: 4em;
   font-weight: bold;
   line-height: 40px;
-  // padding-left: 4em;
 }
 
 .rightlabels {
   text-align: end;
+  // padding-left: 4em;
   font-weight: bold;
-  line-height: 10px;
+  line-height: 40px;
 }
 
 .test {
-  background: #001844;
-  color: #f8f9fa;
-}
-
-#ID1 {
   background: #001844;
   color: #f8f9fa;
 }

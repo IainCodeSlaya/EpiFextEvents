@@ -5,4 +5,5 @@ export class Eventactivity {
   ActivityTitle: string;
   ActivityLocation: string;
   ActivityDesc: string;
+  SpeackerCount: number;
 }

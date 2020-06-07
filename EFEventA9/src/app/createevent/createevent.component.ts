@@ -31,16 +31,42 @@ export class CreateeventComponent implements OnInit {
       EventTitle: '',
       EventDate: d,
       EventTypeID: 0,
-      EventStartTime: d.getTime().toString(),
-      EventEndTime: d.getTime.toString(),
+      EventStartTime: '12:00 AM',
+      EventEndTime: '12:00 AM',
       EventLocation: '',
       IsCaterer: false,
       GuestCount: 0
     };
   }
 
+  convertTime12to24(time12h) {
+    const [time, modifier] = time12h.split(' ');
+
+    let [hours, minutes] = time.split(':');
+    if (hours === '12') {
+      hours = '00';
+    }
+    if (modifier === 'PM') {
+      hours = parseInt(hours, 10) + 12;
+    }
+    return `${hours}:${minutes}:00`;
+  }
+
+  testtime() {
+    console.log(this.convertTime12to24(this.eService.eventData.EventStartTime));
+  }
+
+  selectEventType(ctrl) {
+    if (ctrl.selecyedIndex === 0) {
+      // this.eService.eventData.EventTypeID = 0;
+    }
+  }
+
   createEvent() {
-    console.log(this.eService.eventData);
+    // console.log(this.eService.eventData, '1');
+    this.eService.eventData.EventStartTime = this.convertTime12to24(this.eService.eventData.EventStartTime);
+    this.eService.eventData.EventEndTime = this.convertTime12to24(this.eService.eventData.EventEndTime);
+    this.eService.createEvent(this.eService.eventData);
   }
 
 }

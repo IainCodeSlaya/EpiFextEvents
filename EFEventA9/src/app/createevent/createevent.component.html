@@ -1,4 +1,5 @@
 <div class="all">
+  <!-- Header -->
   <div class="row toolbar">
     <mat-toolbar class="test">
       <mat-toolbar-row>
@@ -6,162 +7,175 @@
       </mat-toolbar-row>
     </mat-toolbar>
   </div>
-
-  <!-- Select title for event -->
-  <div class="row">
-    <div class="col-md-2 leftlabels">
-      <label>Title: </label>
-    </div>
-    <div class="col-md-9">
-      <div class="form-group">
-        <input type="text" class="form-control" name="EventTitle" #EventTitle="ngModel" [(ngModel)]="eService.eventData.EventTitle">
+<div class="divcard">
+  <form class="divcardContainer">
+    <!-- Create Event Header -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Create Event</h2>
+        </div>
       </div>
     </div>
-  </div>
-
-  <br>
-
-  <!-- Select date and event type -->
-  <div class="row">
-    <div class="col-md-2 leftlabels">
-      <label for="">Date: </label>
+    <!-- Event Titile -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label>Title: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <input type="text" class="form-control" name="EventTitle" #EventTitle="ngModel"
+              [(ngModel)]="eService.eventData.EventTitle">
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Select date for event -->
-    <div class="col-md-4">
-      <div class="form-group">
-          <div class="input-group">
-            <input [matDatepicker]="dpicker" class="form-control" (click)="dpicker.open()"
-                   name="EventDate" #EventDate="ngModel" [(ngModel)]="eService.eventData.EventDate">
-            <mat-datepicker #dpicker></mat-datepicker>
-            <div class="input-group-append">
-              <span href="" class="input-group-text" (click)="dpicker.open()"><i class="fa fa-calendar"></i></span>
+    <!-- Event Date -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label for="">Date: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <div class="input-group">
+              <input [matDatepicker]="dpicker" class="form-control" (click)="dpicker.open()" name="EventDate"
+                #EventDate="ngModel" [(ngModel)]="eService.eventData.EventDate">
+              <mat-datepicker #dpicker></mat-datepicker>
+              <div class="input-group-append">
+                <span href="" class="input-group-text" (click)="dpicker.open()"><i class="fa fa-calendar"></i></span>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
-    <!-- Select event type -->
-    <div class="col-md-1 leftlabels">
-      <label for="">Type: </label>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <select name="EventTypeID" #EventTypeID="ngModel" [(ngModel)]="eService.eventtypeData.EventTypeID"
-                class="form-control">
-          <option value="0">-- Select --</option>
-          <option *ngFor="let item of eService.eventypeList" value="{{item.EventTypeID}}">{{item.EventTypeDesc}}</option>
-        </select>
+    <!-- Event Type -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label for="">Type: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <select name="EventTypeID" #EventTypeID="ngModel" [(ngModel)]="eService.eventData.EventTypeID"
+              class="form-control" (change)="selectEventType($event.target)">
+              <option value="0">-- Select --</option>
+              <option *ngFor="let item of eService.eventypeList" value="{{item.EventTypeID}}">{{item.EventTypeDesc}}
+              </option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <br>
-
-  <!-- Event location -->
-  <div class="row">
-    <div class="col-md-2 leftlabels">
-      <label for="">Location: </label>
-    </div>
-    <div class="col-md-9">
-      <div class="form-group">
-        <input type="text" class="form-control" name="EventLocation" #EventLocation="ngModel" [(ngModel)]="eService.eventData.EventLocation">
+    <!-- Event Location -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label for="">Area: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <input type="text" class="form-control" name="EventLocation" #EventLocation="ngModel"
+              [(ngModel)]="eService.eventData.EventLocation">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <br>
-
-  <!-- Select start and end time for event -->
-  <div class="row">
-    <!-- start date -->
-    <div class="col-md-2 leftlabels">
-      <label for="">Start: </label>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-          <div class="input-group">
-            <input [ngxTimepicker]="spicker" class="form-control"
-                   name="EventStartTime" #EventStartTime="ngModel" [(ngModel)]="eService.eventData.EventStartTime">
-            <ngx-material-timepicker #spicker></ngx-material-timepicker>
-            <div class="input-group-append">
-              <span href="" class="input-group-text" (click)="spicker.open()"><i class="fa fa-clock-o"></i></span>
+    <!-- Event Start Time -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label for="">Start: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <div class="input-group">
+              <input [ngxTimepicker]="spicker" class="form-control" name="EventStartTime" #EventStartTime="ngModel"
+                [(ngModel)]="eService.eventData.EventStartTime">
+              <ngx-material-timepicker #spicker></ngx-material-timepicker>
+              <div class="input-group-append">
+                <span href="" class="input-group-text" (click)="spicker.open()"><i class="fa fa-clock-o"></i></span>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
-    <!-- end date -->
-    <div class="col-md-1 leftlabels">
-      <label for="">End: </label>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-          <div class="input-group">
-            <input [ngxTimepicker]="epicker" class="form-control"
-                   name="EventEndTime" #EventEndTime="ngModel" [(ngModel)]="eService.eventData.EventEndTime">
-            <ngx-material-timepicker #epicker></ngx-material-timepicker>
-            <div class="input-group-append">
-              <span href="" class="input-group-text" (click)="epicker.open()"><i class="fa fa-clock-o"></i></span>
+    <!-- Event End Time -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label>End: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <div class="input-group">
+              <input [ngxTimepicker]="epicker" class="form-control" name="EventEndTime" #EventEndTime="ngModel"
+                [(ngModel)]="eService.eventData.EventEndTime">
+              <ngx-material-timepicker #epicker></ngx-material-timepicker>
+              <div class="input-group-append">
+                <span href="" class="input-group-text" (click)="epicker.open()"><i class="fa fa-clock-o"></i></span>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
+    <!-- Event IsCaterer -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 leftlabels">
+          <label for="">Event Caterer: </label>
+        </div>
+        <div class="col-md-6 rightlabels">
+          <mat-checkbox name="IsCaterer" #IsCaterer="ngModel" [(ngModel)]="eService.eventData.IsCaterer"
+            style="font-weight: bold;"></mat-checkbox>
+        </div>
+      </div>
+    </div>
+    <!-- Event Guest Count -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 leftlabels">
+          <label for="">Guest Count: </label>
+        </div>
+        <div class="col-md-6 rightlabels">
+          <label for="">{{eService.eventData.GuestCount}}</label>
+        </div>
+      </div>
+    </div>
+    <!-- Add Event Attendee Buttons -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 leftlabels">
+          <button type="button" class="btn btn-light" style ="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Employee</button>
+        </div>
+        <div class="col-md-6 rightlabels">
+          <button type="button" class="btn btn-light" style ="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Guest</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Save and Cancel Buttons -->
+<div class="divcardblank">
+  <div style="margin: 10px;">
+    <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;">Save</button>
   </div>
-
-  <br>
-
-  <!-- Event description -->
-  <!-- <div class="row">
-    <div class="col-md-2 leftlabels">
-      <label for="">Description: </label>
-    </div>
-    <div class="col-md-9">
-      <div class="form-group">
-        <textarea class="form-control" id="eDesc" rows="4"
-                  name="EventDesc" #EventDesc="ngModel" [(ngModel)]="eService.eventData.EventDesc">
-        </textarea>
-      </div>
-    </div>
-  </div> -->
-
-  <br>
-  <!-- Invite buttons, check box, guest count -->
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-1">
-      <button mat-flat-button class="btn-sm test"><i class="fa fa-plus"> Guest</i></button>
-    </div>
-    <div class="col-md-0">
-      <!-- <button mat-flat-button class="btn-sm test"><i class="fa fa-plus"> Invite Guest</i></button> -->
-    </div>
-    <div class="col-md-1" style="padding-left: 2%;">
-      <button mat-flat-button class="btn-sm test"><i class="fa fa-plus"> Employee</i></button>
-    </div>
-    <div class="col-md-2"></div>
-    <div class="col-md-1">
-      <mat-checkbox name="IsCaterer" #IsCaterer="ngModel" [(ngModel)]="eService.eventData.IsCaterer">Event Caterer</mat-checkbox>
-    </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-3">
-      <div class="form-group" style="text-align: end;">
-        <label for="">Guest count: </label>
-        <label for="">{{eService.eventData.GuestCount}}</label>
-      </div>
-    </div>
-  </div>
-
-  <br>
-  <!-- save and cancel buttons -->
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-1">
-      <button mat-flat-button class="btn-sm col2" (click)="createEvent()"><i class="fa fa-pencil"> Save</i></button>
-    </div>
-    <div class="col-md-0"></div>
-    <div class="col-md-1" style="padding-left: 2%;">
-      <button mat-flat-button class="btn-sm col3"><i class="fa fa-trash"> Cancel</i></button>
-    </div>
+  <div style="margin: 10px;">
+    <button type="button" class="btn btn-danger" style="box-shadow: 7px 7px 7px #dbdbdb;">Cancel</button>
   </div>
 </div>
 
+<div class="row">
+  <div class="col4">
+    <div class="divcard2">
+
+    </div>
+  </div>
+</div>
 <!-- <div class="col-md-2 offset-md-1">
   <div class="form-group">
     <mat-form-field>

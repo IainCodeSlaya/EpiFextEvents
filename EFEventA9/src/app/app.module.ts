@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { CreateeventComponent } from './createevent/createevent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
+import { CalendarComponent } from './calendar/calendar.component';
+import { ScheduleeventactivityComponent } from './scheduleeventactivity/scheduleeventactivity.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateeventComponent
+    CreateeventComponent,
+    CalendarComponent,
+    ScheduleeventactivityComponent
   ],
   imports: [
     BrowserModule,
