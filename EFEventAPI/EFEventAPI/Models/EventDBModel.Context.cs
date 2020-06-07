@@ -18,8 +18,6 @@ namespace EFEventAPI.Models
         public EpiFexEventEntities()
             : base("name=EpiFexEventEntities")
         {
-            base.Configuration.LazyLoadingEnabled = false;
-            base.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
