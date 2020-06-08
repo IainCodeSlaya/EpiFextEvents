@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ScheduleeventactivityComponent } from './scheduleeventactivity/scheduleeventactivity.component';
+import { AddguesttolistComponent } from './addguesttolist/addguesttolist.component';
+import { AddemployeeComponent } from './addguesttolist/addemployee/addemployee.component';
+import { AddvisitorComponent } from './addguesttolist/addvisitor/addvisitor.component';
+import { AdddepartmentComponent } from './addguesttolist/adddepartment/adddepartment.component';
 
 
 @NgModule({
@@ -16,7 +20,11 @@ import { ScheduleeventactivityComponent } from './scheduleeventactivity/schedule
     AppComponent,
     CreateeventComponent,
     CalendarComponent,
-    ScheduleeventactivityComponent
+    ScheduleeventactivityComponent,
+    AddguesttolistComponent,
+    AdddepartmentComponent,
+    AddemployeeComponent,
+    AddvisitorComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +32,13 @@ import { ScheduleeventactivityComponent } from './scheduleeventactivity/schedule
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule
+  ],
+  entryComponents: [
+    ScheduleeventactivityComponent,
+    AddguesttolistComponent,
+    AdddepartmentComponent,
+    AddemployeeComponent,
+    AddvisitorComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

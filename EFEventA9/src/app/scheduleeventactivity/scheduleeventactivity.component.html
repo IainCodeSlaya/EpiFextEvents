@@ -1,12 +1,4 @@
 <div class="all">
-  <!-- Header -->
-  <!-- <div class="row toolbar">
-    <mat-toolbar class="test">
-      <mat-toolbar-row>
-        <span style="padding-left: 2%;">CREATE EVENT ACTIVITY</span>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </div> -->
 <div class="divcard">
   <form class="divcardContainer">
     <!-- Create Event Header -->
@@ -41,7 +33,7 @@
           <div class="form-group">
             <div class="input-group">
               <input [ngxTimepicker]="spicker" class="form-control" name="EventStartTime" #EventStartTime="ngModel"
-                [(ngModel)]="eService.eventData.EventStartTime">
+                [(ngModel)]="eService.activityData.ActivityStartTime">
               <ngx-material-timepicker #spicker></ngx-material-timepicker>
               <div class="input-group-append">
                 <span href="" class="input-group-text" (click)="spicker.open()"><i class="fa fa-clock-o"></i></span>
@@ -61,7 +53,7 @@
           <div class="form-group">
             <div class="input-group">
               <input [ngxTimepicker]="epicker" class="form-control" name="EventEndTime" #EventEndTime="ngModel"
-                [(ngModel)]="eService.eventData.EventEndTime">
+                [(ngModel)]="eService.activityData.ActivityEndTime">
               <ngx-material-timepicker #epicker></ngx-material-timepicker>
               <div class="input-group-append">
                 <span href="" class="input-group-text" (click)="epicker.open()"><i class="fa fa-clock-o"></i></span>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AddguesttolistComponent } from '../addguesttolist/addguesttolist.component';
+import { ScheduleeventactivityComponent } from '../scheduleeventactivity/scheduleeventactivity.component';
 
 @Component({
   selector: 'app-createevent',
@@ -8,7 +11,10 @@ import { EventService } from '../shared/event.service';
 })
 export class CreateeventComponent implements OnInit {
 
-  constructor( public eService: EventService) { }
+  constructor(
+    public eService: EventService,
+    private dialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -67,6 +73,24 @@ export class CreateeventComponent implements OnInit {
     this.eService.eventData.EventStartTime = this.convertTime12to24(this.eService.eventData.EventStartTime);
     this.eService.eventData.EventEndTime = this.convertTime12to24(this.eService.eventData.EventEndTime);
     this.eService.createEvent(this.eService.eventData);
+  }
+
+  addGuest(EventID) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "50%";
+    dialogConfig.data = { EventID };
+    this.dialog.open(AddguesttolistComponent, dialogConfig);
+  }
+
+  createActivity(EventID) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "60%";
+    dialogConfig.data = { EventID };
+    this.dialog.open(ScheduleeventactivityComponent, dialogConfig);
   }
 
 }

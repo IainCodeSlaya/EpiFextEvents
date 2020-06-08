@@ -1,0 +1,64 @@
+<div class="all">
+  <div class="divcard">
+    <div class="divcardContainer">
+      <!-- Add Employee Header -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Add Employee to Event</h2>
+          </div>
+        </div>
+      </div>
+      <!-- Search -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-12">
+              <div class="search">
+                 <input type="text" class="searchTerm" placeholder="Search for a Service Provider">
+                 <button type="submit" class="searchButton" >
+                  <i class="material-icons">search</i>
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Employee Table -->
+    <table class="tablecard">
+      <tbody>
+        <tr>
+          <th>Name:</th>
+          <th>Surname:</th>
+          <th>Email:</th>
+        </tr>
+        <tr>
+          <td>Iain</td>
+          <td>Steyn</td>
+          <td>iainsteyn@gmail.com</td>
+          <!-- <td><button type="button" class="btn btn-light"><i class="material-icons" style="color:black">edit</i></button>
+          </td>
+          <td><button type="button" class="btn btn-light"><i class="material-icons" style="color:black">delete</i></button>
+          </td> -->
+        </tr>
+        <tr>
+          <td>Bernny</td>
+          <td>Du Toit</td>
+          <td>iainsteyn@gmail.com</td>
+        </tr>
+        <tr>
+          <td>Abhi</td>
+          <td>Matthew</td>
+          <td>iainsteyn@gmail.com</td>
+        </tr>
+      </tbody>
+    </table>
+
+  <!-- Save and Cancel Buttons -->
+  <div class="divcardblank">
+    <div style="margin: 10px;">
+      <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;">Save</button>
+    </div>
+    <div style="margin: 10px;">
+      <button type="button" class="btn btn-danger" style="box-shadow: 7px 7px 7px #dbdbdb;" [mat-dialog-close]>Back</button>
+    </div>
+  </div>

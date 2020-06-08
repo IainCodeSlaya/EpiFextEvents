@@ -1,0 +1,46 @@
+<div class="all">
+  <div class="divcard">
+    <form class="divcardContainer">
+      <!-- Add Guests Header -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Add Guest To Event Attendee List</h2>
+          </div>
+        </div>
+      </div>
+      <!-- Add Guest Speaker Buttons -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-12 text-center">
+            <button (click)="addDepartment()" type="button" class="btn btn-light" style ="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Add Department</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add Guest Speaker Buttons -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-12 text-center">
+            <button (click)="addEmployee()" type="button" class="btn btn-light" style ="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Add Employee</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add Guest Speaker Buttons -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-12 text-center">
+            <button (click)="addVisitor()" type="button" class="btn btn-light" style ="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Add Visitor</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Save and Cancel Buttons -->
+  <div class="divcardblank">
+    <div style="margin: 10px;">
+      <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;">Save</button>
+    </div>
+    <div style="margin: 10px;">
+      <button type="button" class="btn btn-danger" style="box-shadow: 7px 7px 7px #dbdbdb;" [mat-dialog-close]>Back</button>
+    </div>
+  </div>
