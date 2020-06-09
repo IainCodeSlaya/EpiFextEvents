@@ -13,6 +13,11 @@ import { AddguesttolistComponent } from './addguesttolist/addguesttolist.compone
 import { AddemployeeComponent } from './addguesttolist/addemployee/addemployee.component';
 import { AddvisitorComponent } from './addguesttolist/addvisitor/addvisitor.component';
 import { AdddepartmentComponent } from './addguesttolist/adddepartment/adddepartment.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FlatpickrModule } from 'angularx-flatpickr';
 
 
 @NgModule({
@@ -31,7 +36,11 @@ import { AdddepartmentComponent } from './addguesttolist/adddepartment/adddepart
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    NgbModule,
+    NgbModalModule,
+    FlatpickrModule
   ],
   entryComponents: [
     ScheduleeventactivityComponent,
