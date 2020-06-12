@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4638f544ca6343d4ba62993a4ad0d748" Name="Diagram1" ZoomLevel="61">
-        <EntityTypeShape EntityType="EpiFexEventModel.DietaryRequirement" Width="1.5" PointX="5.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpiFexEventModel.DietaryRequirement" Width="1.5" PointX="4.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EpiFexEventModel.Employee" Width="1.5" PointX="11.5" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="EpiFexEventModel.Event" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EpiFexEventModel.EventActivity" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />

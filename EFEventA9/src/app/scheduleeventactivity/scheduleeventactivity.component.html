@@ -1,0 +1,109 @@
+<div class="all">
+<div class="divcard">
+  <form class="divcardContainer">
+    <!-- Create Event Header -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Create Event Activity</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Event Activity Titile -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label>Title: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <input type="text" class="form-control" name="ActivityTitle" #ActivityTitle="ngModel"
+              [(ngModel)]="eService.activityData.ActivityTitle">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Event Activity Start Time -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label for="">Start: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <div class="input-group">
+              <input [ngxTimepicker]="spicker" class="form-control" name="EventStartTime" #EventStartTime="ngModel"
+                [(ngModel)]="eService.activityData.ActivityStartTime">
+              <ngx-material-timepicker #spicker></ngx-material-timepicker>
+              <div class="input-group-append">
+                <span href="" class="input-group-text" (click)="spicker.open()"><i class="fa fa-clock-o"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Event Activity End Time -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label for="">End: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <div class="input-group">
+              <input [ngxTimepicker]="epicker" class="form-control" name="EventEndTime" #EventEndTime="ngModel"
+                [(ngModel)]="eService.activityData.ActivityEndTime">
+              <ngx-material-timepicker #epicker></ngx-material-timepicker>
+              <div class="input-group-append">
+                <span href="" class="input-group-text" (click)="epicker.open()"><i class="fa fa-clock-o"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Event Activity Location -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2 leftlabels">
+          <label for="">Area: </label>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <input type="text" class="form-control" name="ActivityLocation" #ActivityLocation="ngModel"
+              [(ngModel)]="eService.activityData.ActivityLocation">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Event Speaker Count -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 leftlabels">
+          <label for="">Speaker Count: </label>
+        </div>
+        <div class="col-md-6 rightlabels">
+          <label for="">{{eService.activityData.SpeackerCount}}</label>
+        </div>
+      </div>
+    </div>
+    <!-- Add Guest Speaker Buttons -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 leftlabels">
+          <button type="button" class="btn btn-light" style ="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Speaker</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Save and Cancel Buttons -->
+<div class="divcardblank">
+  <div style="margin: 10px;">
+    <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;">Save</button>
+  </div>
+  <div style="margin: 10px;">
+    <button type="button" class="btn btn-danger" style="box-shadow: 7px 7px 7px #dbdbdb;">Cancel</button>
+  </div>
+</div>

@@ -27,22 +27,6 @@ INSERT INTO [dbo].[Employee] VALUES ('Bernhardt','Du Toit','Bernny@gmail.com','0
 INSERT INTO [dbo].[Employee] VALUES ('Bryon','Surname','Bryon@gmail.com','0791060843','19191919')
 INSERT INTO [dbo].[Employee] VALUES ('Abhishek','Matthews','Abhi@gmail.com','0791060843','20202020')
 
-CREATE TABLE [EventActivity] (
- [EventActivityID] int IDENTITY(1,1) PRIMARY KEY,
- [ActivityStartTime] time,
- [ActivityEndTime] time,
- [ActivityTitle] varchar(30),
- [ActivityLocation] varchar(50),
- [ActivityDesc] varchar(200)
-);
-
-INSERT INTO [dbo].[EventActivity] VALUES ('07:00','9:00','Iains Talk','Iains Pad','Iain says how cool he is')
---INSERT INTO [dbo].[EventActivity] VALUES ('09:00','11:00','Cassies Talk','Cassies Pad','Cassie says how cool she is')
---INSERT INTO [dbo].[EventActivity] VALUES ('11:00','13:00','Bernies Talk','Bernies Pad','Bernny says how cool he is')
---INSERT INTO [dbo].[EventActivity] VALUES ('13:00','15:00','Jaqis Talk','Jaqis Pad','Jaqi says how cool he is')
---INSERT INTO [dbo].[EventActivity] VALUES ('17:00','19:00','Abhis Talk','Abhis Pad','Abhi says how cool he is')
-
-
 CREATE TABLE [EventType] (
  [EventTypeID] int IDENTITY(1,1) PRIMARY KEY,
  [EventTypeDesc] varchar(20)
@@ -66,15 +50,43 @@ CREATE TABLE [Event] (
 
 INSERT INTO [dbo].[Event] VALUES ('02-12-2020','07:00','19:00','Team Mutha Fucken Runtime Terror',200,'1260 Prospect street Hatfield',1,1)
 
-CREATE TABLE [Guest] (
- [GuestID] int IDENTITY(1,1) PRIMARY KEY,
- [GuestName] varchar(20),
- [GuestSurname] varchar(30),
- [GuestEmail] varchar(30),
- [GuestContact] varchar(12)
+CREATE TABLE [Visitor] (
+ [VisitorID] int IDENTITY(1,1) PRIMARY KEY,
+ [VisitorName] varchar(20),
+ [VisitorSurname] varchar(30),
+ [VisitorCompany] varchar(30),
+ [VisitorEmail] varchar(30),
+ [VisitorContactNo] varchar(12)
 );
 
-INSERT INTO [dbo].[Guest] VALUES ('Gaz','Philips','queer@gmail.com','0791060843')
+INSERT INTO [dbo].[Visitor] VALUES ('Gaz','Philips','GayDar','queeR@gmail.com','0791060843')
+
+CREATE TABLE [VehicleColour] (
+ [VehicleColourID] int IDENTITY(1,1) PRIMARY KEY,
+ [Colour] varchar(10)
+);
+
+INSERT INTO [dbo].[VehicleColour] VALUES ('Red')
+INSERT INTO [dbo].[VehicleColour] VALUES ('Green')
+INSERT INTO [dbo].[VehicleColour] VALUES ('Blue')
+INSERT INTO [dbo].[VehicleColour] VALUES ('Purple')
+INSERT INTO [dbo].[VehicleColour] VALUES ('Orange')
+INSERT INTO [dbo].[VehicleColour] VALUES ('Black')
+INSERT INTO [dbo].[VehicleColour] VALUES ('White')
+INSERT INTO [dbo].[VehicleColour] VALUES ('Silver')
+INSERT INTO [dbo].[VehicleColour] VALUES ('Gold')
+
+
+CREATE TABLE [Vehicle] (
+ [VehicleID] int IDENTITY(1,1) PRIMARY KEY,
+ [VehicleRegistration] varchar(12),
+ [VehicleBrand] varchar(12),
+ [VehicleModel] varchar(12),
+ [VehicleColourID] int FOREIGN KEY REFERENCES [VehicleColour]([VehicleColourID]),
+ [VisitorID] int FOREIGN KEY REFERENCES [Visitor]([VisitorID])
+);
+
+INSERT INTO [dbo].[Vehicle] VALUES ('CR 96 SL','Hyundai','i20',7,1)
 
 CREATE TABLE [DietaryRequirement] (
  [DietaryRequirementID] int IDENTITY(1,1) PRIMARY KEY,
@@ -86,9 +98,9 @@ INSERT INTO [dbo].[DietaryRequirement] VALUES ('Bitches','Vegan')
 INSERT INTO [dbo].[DietaryRequirement] VALUES ('Not Really Bitches but still bitches','Vegaterian')
 INSERT INTO [dbo].[DietaryRequirement] VALUES ('Dietary Requirement for Islamic beliefs where they cant eat pork or non halal meat ','Halal')
 
-CREATE TABLE [GuestStatus] (
- [GuestStatusID] int IDENTITY(1,1) PRIMARY KEY,
- [GuestStatusDesc] varchar(15)
+CREATE TABLE [AttendeeStatus] (
+ [AttendeeStatusID] int IDENTITY(1,1) PRIMARY KEY,
+ [AttendeeStatusDesc] varchar(15)
 );
 
 INSERT INTO [dbo].[GuestStatus] VALUES ('Invited')
@@ -100,8 +112,8 @@ INSERT INTO [dbo].[GuestStatus] VALUES ('Food Collected')
 CREATE TABLE [EventGuest] (
  [EventGuestID] int IDENTITY(1,1) PRIMARY KEY,
  [EventID] int FOREIGN KEY REFERENCES [Event]([EventID]),
- [GuestID] int FOREIGN KEY REFERENCES [Guest]([GuestID]),
- [GuestStatusID] int FOREIGN KEY REFERENCES [GuestStatus]([GuestStatusID]),
+ [VisitorID] int FOREIGN KEY REFERENCES [Visitor]([VisitorID]),
+ [AttendeeStatusID] int FOREIGN KEY REFERENCES [AttendeeStatus]([AttendeeStatusID]),
  [DietaryRequirementID] int FOREIGN KEY REFERENCES [DietaryRequirement]([DietaryRequirementID]),
  [GuestQRCode] varchar(10)
 );
@@ -112,20 +124,12 @@ CREATE TABLE [EventEmployee] (
  [EventEmployeeID] int IDENTITY(1,1) PRIMARY KEY,
  [EventID] int FOREIGN KEY REFERENCES [Event]([EventID]),
  [EmployeeID] int FOREIGN KEY REFERENCES [Employee]([EmployeeID]),
- [GuestStatusID] int FOREIGN KEY REFERENCES [GuestStatus]([GuestStatusID]),
+ [AttendeeStatusID] int FOREIGN KEY REFERENCES [AttendeeStatus]([AttendeeStatusID]),
  [DietaryRequirementID] int FOREIGN KEY REFERENCES [DietaryRequirement]([DietaryRequirementID]),
  [GuestQRCode] varchar(10)
 );
 
 INSERT INTO [dbo].[EventEmployee] VALUES (1,1,1,1,'qrcode')
-
-CREATE TABLE [EventActivitySpeaker] (
- [SpeakerID] int IDENTITY(1,1) PRIMARY KEY,
- [EventEmployeeID] int FOREIGN KEY REFERENCES [EventEmployee]([EventEmployeeID]),
- [EventActivityID] int FOREIGN KEY REFERENCES [EventActivity]([EventActivityID])
-);
-
-INSERT INTO [dbo].[EventActivitySpeaker] VALUES (1,1)
 
 --CREATE TABLE [User] (
 -- [User_ID] int IDENTITY(1,1) PRIMARY KEY,

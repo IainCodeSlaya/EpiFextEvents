@@ -20,6 +20,11 @@ namespace EFEventAPI.Controllers
         // GET: api/Events
         public IQueryable<Event> GetEvents()
         {
+            // Event @event;
+            //Event[] eventList = new Event[10];
+            // List<Event> eventList = new List<Event>();
+            //eventList[1].eve
+            //@event = db.Events;
             return db.Events;
         }
 
