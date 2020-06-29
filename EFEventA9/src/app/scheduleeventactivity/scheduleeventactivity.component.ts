@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { CreateeventComponent } from '../createevent/createevent.component';
 
 @Component({
   selector: 'app-scheduleeventactivity',
@@ -8,7 +10,9 @@ import { EventService } from '../shared/event.service';
 })
 export class ScheduleeventactivityComponent implements OnInit {
 
-  constructor( public eService: EventService) { }
+  constructor(
+    public eService: EventService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -41,6 +45,15 @@ export class ScheduleeventactivityComponent implements OnInit {
       hours = parseInt(hours, 10) + 12;
     }
     return `${hours}:${minutes}:00`;
+  }
+
+  saveActivity() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "70%";
+    dialogConfig.data = {  };
+    this.dialog.open(CreateeventComponent, dialogConfig);
   }
 
   createEventActivity() {

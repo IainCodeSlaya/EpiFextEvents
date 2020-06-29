@@ -79,7 +79,7 @@ export class CreateeventComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
-    dialogConfig.width = "50%";
+    dialogConfig.width = "100%";
     dialogConfig.data = { EventID };
     this.dialog.open(AddguesttolistComponent, dialogConfig);
   }

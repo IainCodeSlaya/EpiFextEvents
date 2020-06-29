@@ -1,64 +1,103 @@
-<div class="all">
-  <div class="divcard">
-    <div class="divcardContainer">
-      <!-- Add Employee Header -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-12">
-            <h2>Add Employee to Event</h2>
-          </div>
-        </div>
-      </div>
-      <!-- Search -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-12">
-              <div class="search">
-                 <input type="text" class="searchTerm" placeholder="Search for a Service Provider">
-                 <button type="submit" class="searchButton" >
-                  <i class="material-icons">search</i>
-                </button>
-              </div>
-          </div>
-        </div>
+<div id="addEmployeeToList">
+  <!-- Add Employee Header -->
+  <h2 mat-dialog-title id="mybutton">Please Select an Employee</h2>
+  <mat-dialog-content>
+    <!-- Search -->
+    <div id="mybutton">
+      <div class="search text-center" style="width: 50%;">
+        <input type="text" class="searchTerm" placeholder="Search for an Employee" />
+        <button type="submit" class="searchButton">
+          <i class="material-icons">search</i>
+        </button>
       </div>
     </div>
-    <!-- Employee Table -->
-    <table class="tablecard">
-      <tbody>
-        <tr>
-          <th>Name:</th>
-          <th>Surname:</th>
-          <th>Email:</th>
-        </tr>
-        <tr>
-          <td>Iain</td>
-          <td>Steyn</td>
-          <td>iainsteyn@gmail.com</td>
-          <!-- <td><button type="button" class="btn btn-light"><i class="material-icons" style="color:black">edit</i></button>
-          </td>
-          <td><button type="button" class="btn btn-light"><i class="material-icons" style="color:black">delete</i></button>
-          </td> -->
-        </tr>
-        <tr>
-          <td>Bernny</td>
-          <td>Du Toit</td>
-          <td>iainsteyn@gmail.com</td>
-        </tr>
-        <tr>
-          <td>Abhi</td>
-          <td>Matthew</td>
-          <td>iainsteyn@gmail.com</td>
-        </tr>
-      </tbody>
-    </table>
-
+    <br />
+    <div class="divcard">
+      <!-- Employee Table -->
+      <table class="tablecard">
+        <tbody>
+          <tr>
+            <th>Name:</th>
+            <th>Surame:</th>
+            <th>Student No:</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Cassie</td>
+            <td>Bernhardt</td>
+            <td>Bryon</td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;">edit</i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;">delete</i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;" (click)="addEmployeetoList()" [mat-dialog-close]>add</i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Perkett</td>
+            <td>Du Toit</td>
+            <td>Labuschagne</td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;">edit</i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;">delete</i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;" (click)="addEmployeetoList()" [mat-dialog-close]>add</i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>u1488394</td>
+            <td>u1488394</td>
+            <td>u1488394</td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;">edit</i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;">delete</i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light">
+                <i class="material-icons" style="color: black;" (click)="addEmployeetoList()" [mat-dialog-close]>add</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+  </mat-dialog-content>
   <!-- Save and Cancel Buttons -->
-  <div class="divcardblank">
-    <div style="margin: 10px;">
-      <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;">Save</button>
+  <mat-dialog-actions>
+    <div id="mybutton">
+      <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;"
+        [mat-dialog-close]>Save</button>
     </div>
-    <div style="margin: 10px;">
-      <button type="button" class="btn btn-danger" style="box-shadow: 7px 7px 7px #dbdbdb;" [mat-dialog-close]>Back</button>
+    <div id="mybutton">
+      <button type="button" class="btn btn-light" style="box-shadow: 7px 7px 7px #dbdbdb; color: black;"
+        [mat-dialog-close]>Back</button>
     </div>
-  </div>
+  </mat-dialog-actions>
+</div>

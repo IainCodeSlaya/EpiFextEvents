@@ -1,21 +1,17 @@
 <div class="all">
-  <div class="divcard">
-    <form class="divcardContainer">
-      <!-- Create Event Header -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-12">
-            <h2>Create Event</h2>
-          </div>
-        </div>
-      </div>
+  <!-- Create Event Header -->
+  <h2 mat-dialog-title>Create Event</h2>
+  <!-- Body of Dialog -->
+  <mat-dialog-content>
+    <form>
+      <br>
       <!-- Event Titile -->
       <div class="form-group">
         <div class="row">
-          <div class="col-md-2 leftlabels">
+          <div class="col-md-1 leftlabels">
             <label>Title: </label>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-11">
             <div class="form-group">
               <input type="text" class="form-control" name="EventTitle" #EventTitle="ngModel"
                 [(ngModel)]="eService.eventData.EventTitle">
@@ -23,13 +19,14 @@
           </div>
         </div>
       </div>
-      <!-- Event Date -->
+      <!-- Event Date & Type -->
       <div class="form-group">
         <div class="row">
-          <div class="col-md-2 leftlabels">
+          <!-- Event Date -->
+          <div class="col-md-1 leftlabels">
             <label for="">Date: </label>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-5">
             <div class="form-group">
               <div class="input-group">
                 <input [matDatepicker]="dpicker" class="form-control" (click)="dpicker.open()" name="EventDate"
@@ -41,15 +38,11 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Event Type -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-2 leftlabels">
+          <!-- Event Type -->
+          <div class="col-md-1 leftlabels">
             <label for="">Type: </label>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-5">
             <div class="form-group">
               <select name="EventTypeID" #EventTypeID="ngModel" [(ngModel)]="eService.eventData.EventTypeID"
                 class="form-control" (change)="selectEventType($event.target)">
@@ -64,10 +57,10 @@
       <!-- Event Location -->
       <div class="form-group">
         <div class="row">
-          <div class="col-md-2 leftlabels">
+          <div class="col-md-1 leftlabels">
             <label for="">Area: </label>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-11">
             <div class="form-group">
               <input type="text" class="form-control" name="EventLocation" #EventLocation="ngModel"
                 [(ngModel)]="eService.eventData.EventLocation">
@@ -75,13 +68,14 @@
           </div>
         </div>
       </div>
-      <!-- Event Start Time -->
+      <!-- Event Start & End Time -->
       <div class="form-group">
         <div class="row">
-          <div class="col-md-2 leftlabels">
+          <!-- Event Start Time -->
+          <div class="col-md-1 leftlabels">
             <label for="">Start: </label>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-5">
             <div class="form-group">
               <div class="input-group">
                 <input [ngxTimepicker]="spicker" class="form-control" name="EventStartTime" #EventStartTime="ngModel"
@@ -93,15 +87,11 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Event End Time -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-2 leftlabels">
+          <!-- Event End Time -->
+          <div class="col-md-1 leftlabels">
             <label>End: </label>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-5">
             <div class="form-group">
               <div class="input-group">
                 <input [ngxTimepicker]="epicker" class="form-control" name="EventEndTime" #EventEndTime="ngModel"
@@ -115,25 +105,22 @@
           </div>
         </div>
       </div>
-      <!-- Event IsCaterer -->
+      <!-- Event IsCaterer & Guest Count -->
       <div class="form-group">
         <div class="row">
-          <div class="col-md-6 leftlabels">
+          <!-- Event IsCatererS -->
+          <div class="col-md-5 leftlabels">
             <label for="">Event Caterer: </label>
           </div>
-          <div class="col-md-6 rightlabels">
+          <div class="col-md-1 leftlabels">
             <mat-checkbox name="IsCaterer" #IsCaterer="ngModel" [(ngModel)]="eService.eventData.IsCaterer"
               style="font-weight: bold;"></mat-checkbox>
           </div>
-        </div>
-      </div>
-      <!-- Event Guest Count -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-6 leftlabels">
+          <!-- Event Guest Count -->
+          <div class="col-md-5 leftlabels">
             <label for="">Guest Count: </label>
           </div>
-          <div class="col-md-6 rightlabels">
+          <div class="col-md-1 rightlabels">
             <label for="">{{eService.eventData.GuestCount}}</label>
           </div>
         </div>
@@ -143,7 +130,8 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <button (click)="addGuest(eService.eventData.EventID)" type="button" class="btn btn-light"
-              style="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Add Guest</button>
+              style="color: black; box-shadow: 7px 7px 7px #dbdbdb;"
+              [mat-dialog-close]>Add Guest</button>
           </div>
         </div>
       </div>
@@ -151,21 +139,26 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <button (click)="createActivity(eService.eventData.EventID)" type="button" class="btn btn-light"
-              style="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Create Activity</button>
+              style="color: black; box-shadow: 7px 7px 7px #dbdbdb;"
+              [mat-dialog-close]>Create Activity</button>
           </div>
         </div>
       </div>
     </form>
-  </div>
+  </mat-dialog-content>
+
   <!-- Save and Cancel Buttons -->
-  <div class="divcardblank">
+  <mat-dialog-actions>
     <div style="margin: 10px;">
-      <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;">Save</button>
+      <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;"
+      [mat-dialog-close]>Save</button>
     </div>
     <div style="margin: 10px;">
-      <button type="button" class="btn btn-danger" style="box-shadow: 7px 7px 7px #dbdbdb;">Cancel</button>
+      <button type="button" class="btn btn-light" style="box-shadow: 7px 7px 7px #dbdbdb; color: black;"
+      [mat-dialog-close]>Cancel</button>
     </div>
-  </div>
+  </mat-dialog-actions>
+
   <!-- <div class="col-md-2 offset-md-1">
   <div class="form-group">
     <mat-form-field>
