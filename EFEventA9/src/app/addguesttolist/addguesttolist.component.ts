@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AdddepartmentComponent } from './adddepartment/adddepartment.component';
-import { AddemployeeComponent } from './addemployee/addemployee.component';
-import { AddvisitorComponent } from './addvisitor/addvisitor.component';
 import { CreateeventComponent } from '../createevent/createevent.component';
 import { trigger, transition, animate, style, state } from '@angular/animations';
 

@@ -1,0 +1,73 @@
+<!-- Add employee to list div -->
+<div class="card-body">
+  <div id="addEmployeeToList" tabindex="-1">
+    <!-- Add Employee Header -->
+    <h2 id="mybutton">Please Select an Employee</h2>
+    <!-- Search -->
+    <div id="mybutton">
+      <div class="search text-center" style="width: 50%;">
+        <input type="text" class="searchTerm" placeholder="Search for an Employee" />
+        <button type="submit" class="searchButton">
+          <i class="material-icons">search</i>
+        </button>
+      </div>
+    </div>
+    <br />
+    <div class="divcard">
+      <!-- Employee Table -->
+      <table class="tablecard">
+        <tbody>
+          <tr>
+            <th>Name:</th>
+            <th>Surame:</th>
+            <th>Employee No:</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Cassie</td>
+            <td>Bernhardt</td>
+            <td>Bryon</td>
+            <td>
+              <button type="button" class="btn">
+                <i class="material-icons" style="color: black;">add</i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Perkett</td>
+            <td>Du Toit</td>
+            <td>Labuschagne</td>
+            <td>
+              <button type="button" class="btn">
+                <i class="material-icons" style="color: black;">add</i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>u1488394</td>
+            <td>u1488394</td>
+            <td>u1488394</td>
+            <td>
+              <button type="button" class="btn">
+                <i class="material-icons" style="color: black;">add</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+  </div>
+</div>
+
+<!-- Save and Cancel Buttons -->
+<mat-dialog-actions>
+  <div class="text-center">
+    <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;"
+      [mat-dialog-close] (click)="backtoMeeting()">Save</button>
+  </div>
+  <div class="text-center" style="margin: 10px;">
+    <button type="button" class="btn btn-light" style="box-shadow: 7px 7px 7px #dbdbdb; color: black;"
+      [mat-dialog-close] (click)="backtoMeeting()">Back</button>
+  </div>
+</mat-dialog-actions>

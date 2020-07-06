@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddvisitorComponent } from './addvisitor.component';
+import { RsvptoeventComponent } from './rsvptoevent.component';
 
-describe('AddvisitorComponent', () => {
-  let component: AddvisitorComponent;
-  let fixture: ComponentFixture<AddvisitorComponent>;
+describe('RsvptoeventComponent', () => {
+  let component: RsvptoeventComponent;
+  let fixture: ComponentFixture<RsvptoeventComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddvisitorComponent ]
+      declarations: [ RsvptoeventComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddvisitorComponent);
+    fixture = TestBed.createComponent(RsvptoeventComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

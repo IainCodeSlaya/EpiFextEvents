@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  height: 50px;
+}
+
+.foot {
+    display: inline-block;
+    padding-top: 2rem;
+    // padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    text-align: right;
+    // white-space: nowrap;
+    background-color: #001844; }
+    .foot:hover, .foot:hover:focus {
+      text-decoration: none;
+}
+
+.footer {
+  background-color: #001844;
+  height: 40%;
+  padding: 20px;
+  color: white;
+}
+
+hr.red {
+  border: 1px solid #cd1543;
+}
+
+.divvy {
+  height: 28%;
+  // padding-top: 10px;
+  padding-left: 15px;
+}
+
+.divvy2 {
+  height: 28%;
+  padding-top: 30px;
+  // padding-left: px;
+}

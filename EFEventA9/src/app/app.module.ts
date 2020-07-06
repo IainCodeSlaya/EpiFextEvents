@@ -11,9 +11,6 @@ import { MaterialModule } from './shared/material.module';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ScheduleeventactivityComponent } from './scheduleeventactivity/scheduleeventactivity.component';
 import { AddguesttolistComponent } from './addguesttolist/addguesttolist.component';
-import { AddemployeeComponent } from './addguesttolist/addemployee/addemployee.component';
-import { AddvisitorComponent } from './addguesttolist/addvisitor/addvisitor.component';
-import { AdddepartmentComponent } from './addguesttolist/adddepartment/adddepartment.component'
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -22,7 +19,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import { ModaltestComponent } from './modaltest/modaltest.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignoutComponent } from './signout/signout.component';
+import { ViewexternalmeetingComponent } from './viewexternalmeeting/viewexternalmeeting.component';
+import { RsvptoeventComponent } from './rsvptoevent/rsvptoevent.component';
+import { FooterComponent } from './footer/footer.component';
+import { SelecttimeslotComponent } from './selecttimeslot/selecttimeslot.component';
+import { BookmeetingComponent } from './bookmeeting/bookmeeting.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AddVisitorComponent } from './add-visitor/add-visitor.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +38,17 @@ import { ModaltestComponent } from './modaltest/modaltest.component';
     CalendarComponent,
     ScheduleeventactivityComponent,
     AddguesttolistComponent,
-    AdddepartmentComponent,
-    AddemployeeComponent,
-    AddvisitorComponent,
     SidenavComponent,
-    ModaltestComponent
+    ModaltestComponent,
+    SigninComponent,
+    SignoutComponent,
+    ViewexternalmeetingComponent,
+    RsvptoeventComponent,
+    FooterComponent,
+    SelecttimeslotComponent,
+    BookmeetingComponent,
+    AddEmployeeComponent,
+    AddVisitorComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +65,6 @@ import { ModaltestComponent } from './modaltest/modaltest.component';
   entryComponents: [
     ScheduleeventactivityComponent,
     AddguesttolistComponent,
-    AdddepartmentComponent,
-    AddemployeeComponent,
-    AddvisitorComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

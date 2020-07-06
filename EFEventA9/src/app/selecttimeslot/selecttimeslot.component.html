@@ -1,0 +1,110 @@
+<div class="form-group text-center sConRoom">
+  <label for="" style="text-align: center;" class="lblSelect">Please Select a Conference Room</label>
+  <select class="form-control sConRoom">
+    <option value="0" (change)="showTimetable()">-- Select --</option>
+    <option value="1" (change)="showTimetable()">Room 1</option>
+    <option value="2" (change)="showTimetable()">Room 2</option>
+    <option value="3" (change)="showTimetable()">Room 3</option>
+    <option value="4" (change)="showTimetable()">Room 4</option>
+    <option value="5" (change)="showTimetable()">Room 5</option>
+    <option value="6" (change)="showTimetable()">Room 6</option>
+    <option value="7" (change)="showTimetable()">Room 7</option>
+    <option value="8" (change)="showTimetable()">Room 8</option>
+  </select>
+</div>
+
+
+<div style="text-align: center;" [@openClose]="showTimetable ? 'open' : 'closed'">
+  <div id="timetable" tabindex="-1">
+    <table class="table-center">
+      <tr>
+        <th>#</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+      <tr>
+        <th>7:00 - 8:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>8:00 - 9:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>9:00 - 10:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>10:00 - 11:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>11:00 - 12:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>12:00 - 13:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>13:00 - 14:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>14:00 - 15:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>15:00 - 16:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+      <tr>
+        <th>16:00 - 17:00</th>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+        <td (click)="bookMeeting()"></td>
+      </tr>
+    </table>
+  </div>
+</div>

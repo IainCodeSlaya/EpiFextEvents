@@ -1,0 +1,152 @@
+<div class="all">
+  <!-- Add Guests Header -->
+  <h2 mat-dialog-title style="text-align: center;">Invite Visitor to Meeting</h2>
+  <mat-dialog-content>
+    <form>
+      <br>
+      <br>
+      <!-- Add Visitor to List Button -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-12 text-center">
+            <button (click)="showVisitor()" type="button" class="btn btn-light"
+              style="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Invite Visitor</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add visitor to list div -->
+      <div class="card-body" [@openClose]="showVis ? 'open' : 'closed'">
+        <div id="addVisitorToList" tabindex="-1" hidden>
+          <!-- Add Visitor Header -->
+          <h2 id="mybutton">Please Select an Visitor</h2>
+          <!-- Search -->
+          <div id="mybutton">
+            <div class="search text-center" style="width: 50%;">
+              <input type="text" class="searchTerm" placeholder="Search for an Visitor" />
+              <button type="submit" class="searchButton">
+                <i class="material-icons">search</i>
+              </button>
+            </div>
+          </div>
+          <br />
+          <div class="divcard">
+            <!-- Visitor Table -->
+            <table class="tablecard">
+              <tbody>
+                <tr>
+                  <th>Name:</th>
+                  <th>Surame:</th>
+                  <th>Email:</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>Benjamin</td>
+                  <td>Button</td>
+                  <td>BButtons@zipper.com</td>
+                  <td>
+                    <button type="button" class="btn">
+                      <i class="material-icons" style="color: black;">add</i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Iain</td>
+                  <td>Steyn</td>
+                  <td>Idog@gmail.com</td>
+                  <td>
+                    <button type="button" class="btn">
+                      <i class="material-icons" style="color: black;">add</i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ola</td>
+                  <td>Senor</td>
+                  <td>Senoritta@senor.com</td>
+                  <td>
+                    <button type="button" class="btn">
+                      <i class="material-icons" style="color: black;">add</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+        </div>
+      </div>
+      <!-- Add Department to List Button -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-12 text-center">
+            <button (click)="showDepartment()" type="button" class="btn btn-light"
+              style="color: black; box-shadow: 7px 7px 7px #dbdbdb;">Add Vehicle</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add department to list div -->
+      <div class="card-body" [@openClose]="showDep ? 'open' : 'closed'">
+        <div id="addDepartmentToList" tabindex="-1" hidden>
+          <!-- Add Department Header -->
+          <h2 id="mybutton">Please Select a Department</h2>
+          <!-- Search -->
+          <div id="mybutton">
+            <div class="search text-center" style="width: 50%;">
+              <input type="text" class="searchTerm" placeholder="Search for an Department" />
+              <button type="submit" class="searchButton">
+                <i class="material-icons">search</i>
+              </button>
+            </div>
+          </div>
+          <br />
+          <div class="divcard">
+            <!-- Department Table -->
+            <table class="tablecard">
+              <tbody>
+                <tr>
+                  <th>Name:</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>Functional</td>
+                  <td>
+                    <button type="button" class="btn">
+                      <i class="material-icons" style="color: black;">add</i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Technical</td>
+                  <td>
+                    <button type="button" class="btn">
+                      <i class="material-icons" style="color: black;">add</i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Human Resources</td>
+                  <td>
+                    <button type="button" class="btn">
+                      <i class="material-icons" style="color: black;">add</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <!-- Save and Cancel Buttons -->
+  <mat-dialog-actions>
+    <div class="text-center">
+      <button type="button" class="btn btn-secondary" style="box-shadow: 7px 7px 7px #dbdbdb;"
+        [mat-dialog-close] (click)="backtoMeeting()">Save</button>
+    </div>
+    <div class="text-center" style="margin: 10px;">
+      <button type="button" class="btn btn-light" style="box-shadow: 7px 7px 7px #dbdbdb; color: black;"
+        [mat-dialog-close] (click)="backtoMeeting()">Back</button>
+    </div>
+  </mat-dialog-actions>
